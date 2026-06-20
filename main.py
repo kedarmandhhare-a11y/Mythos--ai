@@ -170,3 +170,18 @@ def home():
         "status": "Mythos AI Running 🚀",
         "message": "System is active"
 }
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"status": "Mythos AI Running 🚀"}
+
+@app.get("/status")
+def status():
+    return {"status": "active"}
+
+@app.get("/health")
+def health():
+    return {"health": "ok"}
