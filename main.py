@@ -164,3 +164,9 @@ def status():
         "total_requests": sum(USAGE_DB.values()),
         "architecture": "production-ready base"
   }
+@app.get("/")
+def home():
+    return {
+        "status": "Mythos AI Running 🚀",
+        "message": "System is active"
+}
