@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: mythos-ai-service
+    env: python
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: mythos-v4
+
+    buildCommand: pip install -r requirements.txt
+
+    startCommand: python main.py
