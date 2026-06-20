@@ -1,1 +1,52 @@
-# requirements
+# =========================
+# CORE API FRAMEWORK
+# =========================
+fastapi
+uvicorn[standard]
+pydantic
+
+# =========================
+# DATABASE
+# =========================
+sqlalchemy
+psycopg2-binary
+
+# =========================
+# CACHE / QUEUE
+# =========================
+redis
+celery
+
+# =========================
+# AUTH & SECURITY
+# =========================
+python-jose
+passlib[bcrypt]
+python-multipart
+
+# =========================
+# AI / ML CORE
+# =========================
+openai
+httpx
+
+# =========================
+# BILLING (STRIPE)
+# =========================
+stripe
+
+# =========================
+# ENV MANAGEMENT
+# =========================
+python-dotenv
+
+# =========================
+# WEBSOCKETS
+# =========================
+websockets
+
+# =========================
+# UTILITIES
+# =========================
+requests
+email-validator
