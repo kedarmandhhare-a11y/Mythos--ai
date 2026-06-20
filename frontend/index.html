@@ -418,3 +418,110 @@ async function sendMythos() {
   chat.scrollTop = chat.scrollHeight;
 }
 </script>
+<!-- ========================= -->
+<!-- MYTHOS AI CHAT MODULE -->
+<!-- Paste before </body> -->
+<!-- ========================= -->
+
+<div id="mythos-ai-box">
+
+<style>
+#mythos-ai-box{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:360px;
+  height:500px;
+  background:#0b0b0b;
+  border:1px solid #222;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  font-family:Arial;
+  z-index:99999;
+}
+
+#header{
+  padding:10px;
+  background:#111;
+  color:#4CAF50;
+  font-weight:bold;
+  text-align:center;
+}
+
+#chat{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+  color:white;
+  font-size:14px;
+}
+
+#input-area{
+  display:flex;
+  padding:8px;
+  background:#111;
+}
+
+#msg{
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+  background:#1a1a1a;
+  color:white;
+  border-radius:6px;
+}
+
+#send{
+  margin-left:8px;
+  padding:10px;
+  background:#4CAF50;
+  border:none;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+
+<div id="header">⚡ Mythos AI</div>
+
+<div id="chat"></div>
+
+<div id="input-area">
+  <input id="msg" placeholder="Ask something..." />
+  <button id="send" onclick="sendMsg()">Send</button>
+</div>
+
+</div>
+
+<script>
+const API = "https://mythos--ai-1.onrender.com";
+
+async function sendMsg(){
+  let input = document.getElementById("msg");
+  let text = input.value.trim();
+  if(!text) return;
+
+  let chat = document.getElementById("chat");
+
+  // user message
+  chat.innerHTML += "<div><b>You:</b> " + text + "</div>";
+  input.value = "";
+
+  // loading
+  chat.innerHTML += "<div><i>AI thinking...</i></div>";
+
+  try {
+    // BASIC TEST (status endpoint)
+    let res = await fetch(API + "/status");
+    let data = await res.json();
+
+    chat.innerHTML += "<div><b>AI:</b> " + JSON.stringify(data) + "</div>";
+  } catch(err){
+    chat.innerHTML += "<div style='color:red'>Connection error</div>";
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
