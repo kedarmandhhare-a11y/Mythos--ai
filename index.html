@@ -347,3 +347,313 @@ text-shadow:
 }
 
 </style>
+<!-- ========================= -->
+<!-- MYTHOS V2 DESIGN UPGRADE -->
+<!-- Paste Before </body> -->
+<!-- ========================= -->
+
+<style>
+
+/* Futuristic Background */
+body{
+background:
+radial-gradient(circle at center,
+#180000 0%,
+#050505 45%,
+#000000 100%) !important;
+}
+
+/* Header Upgrade */
+.chat-header{
+background:linear-gradient(90deg,#000,#111,#000) !important;
+box-shadow:
+0 0 20px red,
+0 0 40px rgba(255,0,0,.4) !important;
+
+letter-spacing:2px;
+text-shadow:
+0 0 10px red,
+0 0 20px red;
+}
+
+/* AI Core */
+.ai-core{
+width:120px;
+height:120px;
+margin:20px auto;
+border-radius:50%;
+
+border:3px solid red;
+
+box-shadow:
+0 0 20px red,
+0 0 40px red,
+0 0 80px rgba(255,0,0,.4);
+
+animation:
+mythos-spin 8s linear infinite;
+}
+
+@keyframes mythos-spin{
+from{
+transform:rotate(0deg);
+}
+to{
+transform:rotate(360deg);
+}
+}
+
+/* AI Message */
+.ai{
+background:
+rgba(255,255,255,.04) !important;
+
+backdrop-filter:
+blur(12px);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 20px rgba(255,255,255,.05);
+}
+
+/* User Message */
+.user{
+box-shadow:
+0 0 20px red,
+0 0 40px rgba(255,0,0,.3);
+}
+
+/* Input Bar */
+.input-area{
+background:
+rgba(0,0,0,.85) !important;
+
+backdrop-filter:
+blur(20px);
+
+box-shadow:
+0 -5px 30px rgba(255,0,0,.25);
+}
+
+/* Input */
+#prompt{
+background:#111 !important;
+
+box-shadow:
+inset 0 0 10px rgba(255,0,0,.2);
+
+color:white;
+}
+
+/* Buttons */
+.btn{
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+
+box-shadow:
+0 0 20px red;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:red;
+border-radius:10px;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.chat-header{
+font-size:20px;
+}
+
+.message{
+max-width:92%;
+}
+
+}
+
+</style>
+
+<script>
+
+window.addEventListener("load",()=>{
+
+const header=
+document.querySelector(".chat-header");
+
+if(header){
+
+const core=
+document.createElement("div");
+
+core.className=
+"ai-core";
+
+header.insertAdjacentElement(
+"afterend",
+core
+);
+
+}
+
+});
+
+</script>
+<!-- ========================= -->
+<!-- MYTHOS V3 ULTRA UPGRADE -->
+<!-- ========================= -->
+
+<style>
+
+/* Animated Grid Background */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(255,0,0,.06) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,0,.06) 1px, transparent 1px);
+background-size:40px 40px;
+pointer-events:none;
+opacity:.4;
+z-index:-1;
+}
+
+/* Premium Header */
+.chat-header{
+font-weight:900 !important;
+font-size:24px !important;
+text-transform:uppercase;
+letter-spacing:3px;
+}
+
+/* Hologram Glow */
+.chat-header::after{
+content:"NEURAL CORE ONLINE";
+display:block;
+font-size:10px;
+color:#ff6666;
+letter-spacing:4px;
+margin-top:4px;
+}
+
+/* AI Core Upgrade */
+.ai-core{
+position:relative;
+}
+
+.ai-core::before{
+content:"";
+position:absolute;
+inset:-20px;
+border-radius:50%;
+border:2px solid rgba(255,0,0,.4);
+animation:pulse 2s infinite;
+}
+
+.ai-core::after{
+content:"";
+position:absolute;
+inset:-40px;
+border-radius:50%;
+border:1px solid rgba(255,0,0,.2);
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+opacity:1;
+}
+100%{
+transform:scale(1.4);
+opacity:0;
+}
+}
+
+/* Glass Messages */
+.message{
+backdrop-filter:blur(14px);
+transition:.3s;
+}
+
+.message:hover{
+transform:translateY(-2px);
+}
+
+/* User Bubble */
+.user{
+border:1px solid rgba(255,255,255,.15);
+}
+
+/* AI Bubble */
+.ai{
+border:1px solid rgba(255,0,0,.2);
+}
+
+/* Fancy Input */
+#prompt{
+border:1px solid rgba(255,0,0,.25);
+}
+
+/* Send Button */
+.btn{
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.btn:hover{
+transform:translateY(-2px) scale(1.04);
+}
+
+/* Startup Animation */
+@keyframes mythosBoot{
+0%{
+opacity:0;
+transform:translateY(20px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.chat-container{
+animation:mythosBoot .8s ease;
+}
+
+</style>
+
+<script>
+
+/* Boot Message */
+window.addEventListener("load",()=>{
+
+const msgs=document.getElementById("messages");
+
+if(msgs){
+
+const boot=document.createElement("div");
+
+boot.className="message ai";
+
+boot.innerHTML=
+"⚡ MYTHOS OS INITIALIZED<br>🧠 Neural Core Online<br>🔴 Security Layer Active";
+
+msgs.prepend(boot);
+
+}
+
+});
+
+</script>
