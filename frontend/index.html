@@ -301,3 +301,11 @@ addMessage("File uploaded: " + this.files[0].name, "user");
 
 </body>
   </html>
+<script>
+async function checkAI() {
+  let res = await fetch("https://mythos--ai-1.onrender.com/status");
+  let data = await res.json();
+  console.log("AI Status:", data);
+}
+checkAI();
+</script>
