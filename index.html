@@ -273,3 +273,77 @@ recognition.start();
 
 </body>
 </html>
+<style>
+
+/* MOBILE FULL SCREEN FIX */
+@media (max-width: 768px){
+
+.sidebar{
+display:none !important;
+}
+
+.status-panel{
+display:none !important;
+}
+
+.chat-container{
+width:100% !important;
+flex:1 !important;
+border:none !important;
+}
+
+.chat-header{
+font-size:18px !important;
+height:60px !important;
+}
+
+.messages{
+padding:10px !important;
+}
+
+.message{
+max-width:90% !important;
+}
+
+.input-area{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#050505;
+padding:10px;
+border-top:2px solid red;
+}
+
+#prompt{
+font-size:16px;
+}
+
+.btn{
+min-width:60px;
+}
+
+}
+
+/* PREMIUM GLOW EFFECT */
+
+.chat-header{
+box-shadow:0 0 20px red;
+}
+
+.message.user{
+box-shadow:0 0 15px rgba(255,0,0,0.5);
+}
+
+.message.ai{
+box-shadow:0 0 10px rgba(255,255,255,0.1);
+}
+
+.logo{
+text-shadow:
+0 0 10px red,
+0 0 20px red,
+0 0 40px red;
+}
+
+</style>
