@@ -309,3 +309,112 @@ async function checkAI() {
 }
 checkAI();
 </script>
+<!-- ============================= -->
+<!-- MYTHOS AI ADVANCED CHAT MODULE -->
+<!-- Paste before </body> -->
+<!-- ============================= -->
+
+<div id="mythos-panel">
+
+<style>
+#mythos-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 380px;
+  height: 520px;
+  background: #0d0d0d;
+  border: 1px solid #222;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#mythos-header {
+  background: #111;
+  padding: 10px;
+  color: #4CAF50;
+  font-weight: bold;
+  text-align: center;
+}
+
+#mythos-chat {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  color: white;
+  font-size: 14px;
+}
+
+#mythos-input {
+  display: flex;
+  padding: 8px;
+  background: #111;
+}
+
+#mythos-msg {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: #1a1a1a;
+  color: white;
+  border-radius: 6px;
+}
+
+#mythos-send {
+  margin-left: 8px;
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#mythos-send:hover {
+  background: #3e8e41;
+}
+</style>
+
+<div id="mythos-header">⚡ Mythos AI Assistant</div>
+
+<div id="mythos-chat"></div>
+
+<div id="mythos-input">
+  <input id="mythos-msg" placeholder="Ask AI..." />
+  <button id="mythos-send" onclick="sendMythos()">➤</button>
+</div>
+
+</div>
+
+<script>
+const API_URL = "https://mythos--ai-1.onrender.com";
+
+async function sendMythos() {
+  let input = document.getElementById("mythos-msg");
+  let text = input.value;
+  if (!text) return;
+
+  let chat = document.getElementById("mythos-chat");
+
+  chat.innerHTML += `<div><b>You:</b> ${text}</div>`;
+  input.value = "";
+
+  chat.innerHTML += `<div><i>AI thinking...</i></div>`;
+
+  try {
+    let res = await fetch(API_URL + "/status");
+    let data = await res.json();
+
+    chat.innerHTML += `<div><b>AI:</b> ${JSON.stringify(data)}</div>`;
+  } catch (e) {
+    chat.innerHTML += `<div style='color:red'>Error connecting AI</div>`;
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
